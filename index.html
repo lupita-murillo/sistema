@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="javascript.js" href="js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="img/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!--Ilink de iconos--> 
+
+    <title>INICIAR SESION</title>
+</head>
+
+<body style="background-image: url('img/fondo.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+    <div class="row justify-content-center">
+        <div class="col-5">
+<br>
+<br>
+<div style="text-align: center;"><h1 style="color: black;">
+<i class="fa-solid fa-user-shield"></i>INGRESA TUS DATOS</h1></div><!--aqui está el link del icono-->
+<br>
+<form action="recibi.php" method="POST" autocomplete="off">
+
+    <label>INSERTA TU USUARIO</label>
+<input type="text" name="usuario" placeholder="Usuario" class="form-control" required="">
+<br>
+<label>INSERTA TU CONTRASEÑA</label>
+<input type="password" name="contrasena" placeholder="Contraseña" class="form-control" required autocomplete="off"><br>  <!-- Evita el autocompletado del formulario en HTML -->
+ 
+<br>
+<div class="text-center">
+
+    <button type="submit" class="btn btn-secondary" >ENTRAR</button>
+
+            </form> 
+
+        </div>
+    </div>
+
+    <!-- Pie de página con contacto -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p class="mb-2">
+      <i class="fa-solid fa-phone"></i> Contacto: <a href="tel:2781229254" class="text-white text-decoration-none">2781229254</a>
+    </p>
+    <p class="mb-2">
+      <i class="fa-solid fa-envelope"></i> Correo: <a href="mailto:22EB201179@conafe.nuevaescuela.gob.mx" class="text-white text-decoration-none">22EB201179@conafe.nuevaescuela.gob.mx</a>
+    </p>
+    <p class="mb-0">
+      <i class="fa-brands fa-facebook"></i> Facebook: <a href="#" class="text-white text-decoration-none">Mi Página CONAFE</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="javascript.js" href="js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="img/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<title>REGISTRO</title>
+</head>
+
+<style>
+  body {
+    background-color: skyblue;
+  }
+
+  .tools-section {
+    margin-top: 40px; /* Espacio entre navbar y herramientas */
+    background-color: #f8f9fa; /* Fondo claro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  #clock {
+    font-size: 1.8rem;
+    color: #343a40;
+  }
+
+  textarea {
+    resize: none;
+    height: 150px;
+  }
+</style>
+
+<body style="background-color: skyblue;">
+<br>
+<header>
+	
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="nav-link" href="panel.html">Inicio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="registro.html">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reportes.html">Reportes</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Cerrar Sesion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+  <div class="container my-5"><!-- margen superior e inferior -->
+  <div class="row justify-content-center"><!-- Centra horizontalmente -->
+    <div class="col-md-6 bg-white p-4 rounded shadow"><!--  Formulario con fondo blanco, padding y sombra -->
+     <form id="form-registro" method="POST" action="registro.php" onsubmit="return false;"> <!-- onsubmit="return false;" detiene el envío automático del formulario.-->
+
+              <h3 class="text-center mb-4"><i class="fa-regular fa-rectangle-list"></i>Formulario de Registro</h3><!-- text-center Centra título y botón -->
+
+  <label>NOMBRE</label>
+    <input type="text" name="nombre" placeholder="Inserta tu nombre" class="form-control" required><br>
+
+    <label>APELLIDO PATERNO</label>
+    <input type="text" name="apellido_paterno" placeholder="Inserta tu apellido paterno" class="form-control" required><br>
+
+    <label>APELLIDO MATERNO</label>
+    <input type="text" name="apellido_materno" placeholder="Inserta tu apellido materno" class="form-control" required><br>
+
+    <label>TELEFONO</label>
+    <input type="text" name="telefono" placeholder="Inserta tu teléfono" class="form-control" required><br>
+
+    <label>NUMERO DE CONTROL</label>
+    <input type="text" name="num_control" placeholder="Inserta tu número de control" class="form-control" required><br><br>
+
+<!-- Modal de Confirmación -->
+<div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalConfirmacionLabel">¿DESEA GUARDAR REGISTRO?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Selecciona una opción:</p>
+        <button class="btn btn-success" onclick="aceptar()">ACEPTAR</button>
+        <button class="btn btn-warning" data-bs-dismiss="modal">MODIFICAR</button>
+        <button class="btn btn-danger" onclick="cancelar()">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Botón para mostrar el modal -->
+<div class="text-center">
+  <button type="button" class="btn btn-secondary" onclick="mostrarModal()">ENVIAR</button>
+</div>
+  </form>
+
+<!-- Pie de página con contacto -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p class="mb-2">
+      <i class="fa-solid fa-phone"></i> Contacto: <a href="tel:2781229254" class="text-white text-decoration-none">2781229254</a>
+    </p>
+    <p class="mb-2">
+      <i class="fa-solid fa-envelope"></i> Correo: <a href="mailto:22EB201179@conafe.nuevaescuela.gob.mx" class="text-white text-decoration-none">22EB201179@conafe.nuevaescuela.gob.mx</a>
+    </p>
+    <p class="mb-0">
+      <i class="fa-brands fa-facebook"></i> Facebook: <a href="#" class="text-white text-decoration-none">Mi Página CONAFE</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Contenedor donde se cargará el modal -->
+<div id="contenedor-modal"></div>
+
+<!-- Scripts necesarios -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script para cargar y controlar el modal -->
+<script>
+  // Cargar modal desde archivo externo
+  function mostrarModal() {
+    fetch('modales/modal_confirmacion.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('contenedor-modal').innerHTML = html;
+        const modal = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+        modal.show();
+      });
+  }
+
+  // ACEPTAR: Envía el formulario manualmente
+  function aceptar() {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalConfirmacion'));
+    modal.hide(); // Oculta el modal
+    document.getElementById('form-registro').submit(); // Envía el formulario
+  }
+
+  // CANCELAR: Redirige a panel.html
+  function cancelar() {
+    window.location.href = "panel.html";
+  }
+</script>
+
+
+</body>
+</html>
+
+

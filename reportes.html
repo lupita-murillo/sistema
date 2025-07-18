@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="img/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<title>REPORTES</title>
+</head>
+
+<style>
+  body {
+    background-color: skyblue;
+  }
+
+  .tools-section {
+    margin-top: 40px; /* Espacio entre navbar y herramientas */
+    background-color: #f8f9fa; /* Fondo claro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  #clock {
+    font-size: 1.8rem;
+    color: #343a40;
+  }
+
+  textarea {
+    resize: none;
+    height: 150px;
+  }
+</style>
+
+<body style="background-color: skyblue;">
+<br>
+<header>
+	
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="nav-link" href="panel.html">Inicio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="registro.html">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reportes.html">Reportes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Cerrar Sesion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+<div class="container my-5">
+  <h3 class="text-center mb-4">Reportes Mensuales de Visitantes</h3>
+  <div class="row text-center">
+    <!-- Generamos 12 botones, uno por mes -->
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Enero')">
+  <button class="btn btn-outline-primary w-100">Enero</button>
+</div>
+
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Febrero')">
+      <button class="btn btn-outline-primary w-100">Febrero</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Marzo')">
+      <button class="btn btn-outline-primary w-100">Marzo</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Abril')">
+      <button class="btn btn-outline-primary w-100">Abril</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Mayo')">
+      <button class="btn btn-outline-primary w-100">Mayo</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Junio')">
+      <button class="btn btn-outline-primary w-100">Junio</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Julio')">
+      <button class="btn btn-outline-primary w-100">Julio</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Agosto')">
+      <button class="btn btn-outline-primary w-100">Agosto</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Septiembre')">
+      <button class="btn btn-outline-primary w-100">Septiembre</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Octubre')">
+      <button class="btn btn-outline-primary w-100">Octubre</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Noviembre')">
+      <button class="btn btn-outline-primary w-100">Noviembre</button>
+    </div>
+    <div class="col-6 col-md-3 mb-3" onclick="mostrarReporte('Diciembre')">
+      <button class="btn btn-outline-primary w-100">Diciembre</button>
+    </div>
+  </div>
+
+<!-- Script para abrir el PDF generado -->
+<script>
+  function mostrarReporte(mes) {
+    // Abre el archivo PHP con el nombre del mes como parámetro
+    window.open("generar_reporte.php?mes=" + mes, "_blank");
+  }
+</script>
+
+ <!-- Aquí se mostrará el reporte del mes -->
+<div id="reporteMes" class="mt-5 bg-light p-4 rounded shadow" style="display: none;">
+  <h4 id="tituloMes"></h4>
+  <div id="tablaRegistros"></div> <!-- Aquí se insertará la tabla del mes -->
+  <br>
+  <a id="linkPDF" class="btn btn-danger" target="_blank">Descargar PDF</a>
+</div>
+
+
+
+<!-- Pie de página con contacto -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p class="mb-2">
+      <i class="fa-solid fa-phone"></i> Contacto: <a href="tel:2781229254" class="text-white text-decoration-none">2781229254</a>
+    </p>
+    <p class="mb-2">
+      <i class="fa-solid fa-envelope"></i> Correo: <a href="mailto:22EB201179@conafe.nuevaescuela.gob.mx" class="text-white text-decoration-none">22EB201179@conafe.nuevaescuela.gob.mx</a>
+    </p>
+    <p class="mb-0">
+      <i class="fa-brands fa-facebook"></i> Facebook: <a href="#" class="text-white text-decoration-none">Mi Página CONAFE</a>
+    </p>
+  </div>
+</footer>
+
+<script src="js/reporte.js"></script>
+</body>
+</html>
+
+
